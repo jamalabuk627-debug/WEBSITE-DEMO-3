@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afrishield Drilling Solutions — Strength Beneath the Surface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#141210;
+    --plate:#1D1A17;
+    --plate-2:#262220;
+    --paper:#F3ECDD;
+    --ink:#F7F1E4;
+    --ink-dim:#AFA99C;
+    --line:#38332D;
+    --gold:#EFC13F;
+    --gold-deep:#C9962A;
+    --copper:#E2703A;
+    --teal:#38A98A;
+    --rust:#C24B3E;
+    --plum:#9B78B8;
+    --sage:#7FB08A;
+    --display: 'Big Shoulders Display', sans-serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 32px; position:relative; z-index:2;}
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
+
+  h1,h2,h3{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:0.5px; line-height:0.98;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--gold); display:inline-block;}
+  .grad-text{
+    background:linear-gradient(100deg, var(--gold) 10%, var(--copper) 55%, var(--gold) 90%);
+    background-size:220% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:gradShift 7s ease-in-out infinite;
+  }
+  @keyframes gradShift{ 0%,100%{background-position:0% center;} 50%{background-position:100% center;} }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:22px 0; transition:all .35s ease;
+    background:transparent;
+  }
+  header.solid{ background:rgba(20,18,16,0.85); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:14px 0;}
+  nav{display:flex; align-items:center; justify-content:space-between;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:800; font-size:20px; letter-spacing:1px;}
+  .logo .mark{width:28px; height:28px; flex:none; animation:spin 14s linear infinite;}
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .navlinks{display:flex; gap:34px; font-size:14px; font-weight:500; color:var(--ink-dim);}
+  .navlinks a{position:relative; padding-bottom:4px;}
+  .navlinks a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:1.5px; background:var(--gold); transition:width .25s ease;}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks a:hover::after{width:100%;}
+  .cta-btn{
+    font-family:var(--mono); font-size:12px; letter-spacing:1px; text-transform:uppercase;
+    border:1px solid var(--gold); color:var(--gold); padding:10px 18px; transition:all .25s ease;
+  }
+  .cta-btn:hover{background:var(--gold); color:var(--ground); box-shadow:0 0 24px rgba(239,193,63,0.45);}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+  .burger span{width:24px; height:2px; background:var(--ink);}
+  @media(max-width:860px){
+    .navlinks{display:none;}
+    .burger{display:flex;}
+  }
+  .mobile-menu{
+    display:none; position:fixed; inset:0; background:var(--ground); z-index:99;
+    flex-direction:column; align-items:flex-start; justify-content:center; gap:28px; padding:0 32px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:var(--display); font-size:34px; text-transform:uppercase; font-weight:700;}
+  .mobile-menu .close{position:absolute; top:26px; right:32px; font-family:var(--mono); font-size:13px; letter-spacing:1px; color:var(--ink-dim); background:none; border:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:100vh; display:flex; align-items:center;
+    padding-top:120px; padding-bottom:60px; overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-glow{
+    position:absolute; inset:-20%; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(560px 420px at 78% 30%, rgba(239,193,63,0.16), transparent 60%),
+      radial-gradient(500px 400px at 15% 75%, rgba(56,169,138,0.14), transparent 60%),
+      radial-gradient(600px 500px at 50% 100%, rgba(226,112,58,0.10), transparent 60%);
+    animation:drift 16s ease-in-out infinite alternate;
+  }
+  @keyframes drift{ 0%{ transform:translate(0,0) scale(1);} 100%{ transform:translate(-2%,2%) scale(1.05);} }
+  .dust{position:absolute; z-index:1; border-radius:50%; pointer-events:none; opacity:0; animation:rise linear infinite;}
+  @keyframes rise{
+    0%{ transform:translateY(0) scale(0.6); opacity:0; }
+    10%{ opacity:0.8; }
+    90%{ opacity:0.5; }
+    100%{ transform:translateY(-620px) scale(1.1); opacity:0; }
+  }
+  .hero .wrap{display:grid; grid-template-columns:1.4fr 0.6fr; gap:60px; align-items:center; width:100%;}
+  @media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;} }
+  .hero h1{font-size:clamp(48px, 8vw, 100px);}
+  .hero p.lede{max-width:480px; color:var(--ink-dim); font-size:17px; margin-top:26px; animation:fadeUp .9s ease .2s both;}
+  .hero h1{animation:fadeUp .9s ease both;}
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(18px);} to{ opacity:1; transform:translateY(0);} }
+  .hero .actions{display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; animation:fadeUp .9s ease .35s both;}
+  .btn-solid{
+    font-family:var(--mono); font-size:13px; letter-spacing:1px; text-transform:uppercase;
+    background:var(--gold); color:var(--ground); padding:15px 26px; border:1px solid var(--gold);
+    transition:all .25s ease; position:relative;
+  }
+  .btn-solid:hover{transform:translateY(-3px); box-shadow:0 10px 28px rgba(239,193,63,0.35);}
+  .btn-ghost{
+    font-family:var(--mono); font-size:13px; letter-spacing:1px; text-transform:uppercase;
+    color:var(--ink); padding:15px 26px; border:1px solid var(--line);
+    transition:all .25s ease;
+  }
+  .btn-ghost:hover{border-color:var(--teal); color:var(--teal); transform:translateY(-3px);}
+
+  /* stat row */
+  .stat-row{display:flex; gap:50px; margin-top:56px; flex-wrap:wrap; animation:fadeUp .9s ease .5s both;}
+  .stat b{font-family:var(--display); font-size:40px; color:var(--gold); display:block;}
+  .stat span{font-family:var(--mono); font-size:11px; color:var(--ink-dim); letter-spacing:1px; text-transform:uppercase;}
+
+  /* drilling rig -- signature element */
+  .rig-col{position:relative; height:520px; width:200px; margin:0 auto;}
+  @media(max-width:900px){ .rig-col{height:380px; transform:scale(0.85); transform-origin:top center;} }
+  .rig-ticks{position:absolute; left:-52px; top:14px; bottom:184px; width:44px; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--mono); font-size:10px; color:var(--ink-dim); text-align:right;}
+  .rig-static{position:absolute; inset:0; width:100%; height:100%;}
+  .drill-assembly-wrap{position:absolute; left:50%; top:250px; transform:translateX(-50%); z-index:2;}
+  .drill-assembly{display:flex; flex-direction:column; align-items:center; animation:drillCycle 7s cubic-bezier(.45,0,.3,1) infinite;}
+  @keyframes drillCycle{
+    0%{ transform:translateY(0); opacity:1; }
+    72%{ transform:translateY(160px); opacity:1; }
+    84%{ transform:translateY(160px); opacity:1; }
+    92%{ transform:translateY(160px); opacity:0; }
+    93%{ transform:translateY(0); opacity:0; }
+    100%{ transform:translateY(0); opacity:1; }
+  }
+  .rotary-head{width:42px; height:22px; border-radius:3px; background:linear-gradient(180deg,#9A9284,#57514A); box-shadow:0 3px 8px rgba(0,0,0,0.5); animation:headShake .18s ease-in-out infinite alternate;}
+  @keyframes headShake{ from{ transform:translateY(0);} to{ transform:translateY(2px);} }
+  .drill-pipe{width:7px; height:52px; margin-top:-2px; background:linear-gradient(180deg,#7A7267,#443E36); box-shadow:0 0 6px rgba(0,0,0,0.4);}
+  .drill-bit-spin{margin-top:-6px; animation:bitspin .45s linear infinite; transform-origin:15px 8px;}
+  @keyframes bitspin{ to{ transform:rotate(360deg); } }
+  .dust-burst{position:absolute; left:50%; top:330px; width:90px; height:50px; transform:translateX(-50%); z-index:3; pointer-events:none;}
+  .dust-burst span{position:absolute; bottom:0; left:50%; width:5px; height:5px; border-radius:50%; opacity:0; animation:dustpuff 1.6s ease-out infinite;}
+  .dust-burst span:nth-child(1){background:#EFC13F; margin-left:-30px; animation-delay:0s;}
+  .dust-burst span:nth-child(2){background:#E2703A; margin-left:-14px; animation-delay:.3s;}
+  .dust-burst span:nth-child(3){background:#38A98A; margin-left:0px; animation-delay:.6s;}
+  .dust-burst span:nth-child(4){background:#EFC13F; margin-left:14px; animation-delay:.9s;}
+  .dust-burst span:nth-child(5){background:#E2703A; margin-left:28px; animation-delay:1.2s;}
+  @keyframes dustpuff{
+    0%{ transform:translateY(0) scale(0.4); opacity:0; }
+    25%{ opacity:0.9; }
+    100%{ transform:translateY(-58px) scale(1.15); opacity:0; }
+  }
+  .rig-label{position:absolute; right:-90px; top:50%; transform:translateY(-50%) rotate(90deg); transform-origin:left center; font-family:var(--mono); font-size:11px; letter-spacing:3px; color:var(--ink-dim); white-space:nowrap;}
+
+  /* core sample strip -- signature element (retained styles, unused) */
+  .core-col{position:relative; height:520px; display:flex; justify-content:center;}
+  @media(max-width:900px){ .core-col{height:340px; margin-top:20px;} }
+  .core-tube{position:relative; width:64px; height:100%; border:1px solid var(--line); background:var(--plate); overflow:hidden; box-shadow:0 0 40px rgba(0,0,0,0.4);}
+  .core-band{position:absolute; left:0; right:0; transition:opacity .3s ease;}
+  .core-ticks{position:absolute; left:-58px; top:0; bottom:0; width:50px; display:flex; flex-direction:column; justify-content:space-between; font-family:var(--mono); font-size:10px; color:var(--ink-dim); text-align:right; padding:2px 0;}
+  .core-sweep{
+    position:absolute; left:-1px; right:-1px; height:4px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    box-shadow:0 0 16px 2px rgba(239,193,63,0.7);
+    animation:sweep 5s linear infinite;
+  }
+  @keyframes sweep{ 0%{ top:-4%; } 100%{ top:100%; } }
+  .core-label{position:absolute; right:-90px; top:50%; transform:translateY(-50%) rotate(90deg); transform-origin:left center; font-family:var(--mono); font-size:11px; letter-spacing:3px; color:var(--ink-dim); white-space:nowrap;}
+  .drill-bit{position:absolute; top:-16px; left:50%; transform:translateX(-50%); animation:drillbob 5s ease-in-out infinite;}
+  @keyframes drillbob{ 0%,100%{ top:-16px;} 50%{ top:-6px;} }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    border-bottom:1px solid var(--line); background:var(--plate); padding:16px 0; overflow:hidden; white-space:nowrap;
+  }
+  .marquee-track{display:inline-flex; gap:40px; animation:scrollmq 22s linear infinite;}
+  .marquee-track span{font-family:var(--display); font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:1px; color:var(--ink-dim); display:inline-flex; align-items:center; gap:16px;}
+  .marquee-track span::after{content:"◆"; color:var(--gold); font-size:10px;}
+  @keyframes scrollmq{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:120px 0; border-bottom:1px solid var(--line); position:relative;}
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .stagger > *{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .stagger.in > *{opacity:1; transform:translateY(0);}
+  .stagger.in > *:nth-child(1){transition-delay:.02s;}
+  .stagger.in > *:nth-child(2){transition-delay:.08s;}
+  .stagger.in > *:nth-child(3){transition-delay:.14s;}
+  .stagger.in > *:nth-child(4){transition-delay:.20s;}
+  .stagger.in > *:nth-child(5){transition-delay:.26s;}
+  .stagger.in > *:nth-child(6){transition-delay:.32s;}
+  .stagger.in > *:nth-child(7){transition-delay:.38s;}
+  .stagger.in > *:nth-child(8){transition-delay:.44s;}
+
+  /* ---------- ABOUT / MEANING ---------- */
+  .meaning-grid{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--line); margin-top:50px;}
+  @media(max-width:760px){ .meaning-grid{grid-template-columns:1fr;} }
+  .meaning-card{background:var(--plate); padding:44px; transition:transform .35s ease, background .35s ease;}
+  .meaning-card:hover{transform:translateY(-6px); background:var(--plate-2);}
+  .meaning-card .big{font-family:var(--display); font-size:64px; font-weight:800;}
+  .meaning-card:nth-child(1) .big{color:var(--gold);}
+  .meaning-card:nth-child(2) .big{color:var(--teal);}
+  .meaning-card h3{font-size:26px; margin:10px 0 14px;}
+  .meaning-card p{color:var(--ink-dim); font-size:15px;}
+  .promise{
+    margin-top:56px; padding:40px; border-left:3px solid var(--gold); background:var(--plate);
+    font-family:var(--display); font-weight:600; font-size:clamp(20px,3vw,30px); text-transform:none; letter-spacing:0;
+    color:var(--paper); line-height:1.35; position:relative; overflow:hidden;
+  }
+
+  /* ---------- SERVICES (cards) ---------- */
+  .svc-grid{margin-top:50px; display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--line);}
+  @media(max-width:900px){ .svc-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .svc-grid{grid-template-columns:1fr;} }
+  .svc-card{
+    background:var(--plate); padding:30px 26px; transition:transform .3s ease, background .3s ease, box-shadow .3s ease;
+    border-top:3px solid transparent; cursor:default;
+  }
+  .svc-card:hover{transform:translateY(-8px); background:var(--plate-2); box-shadow:0 16px 32px rgba(0,0,0,0.35);}
+  .svc-card i.dot{display:inline-block; width:8px; height:8px; border-radius:50%; margin-bottom:16px;}
+  .svc-card:hover i.dot{box-shadow:0 0 14px 2px currentColor;}
+  .svc-code{font-family:var(--mono); font-size:13px; color:var(--ink-dim); letter-spacing:1px;}
+  .svc-name{font-family:var(--display); font-weight:700; font-size:21px; text-transform:uppercase; margin:8px 0 10px;}
+  .svc-desc{color:var(--ink-dim); font-size:13.5px;}
+
+  /* ---------- INDUSTRIES ---------- */
+  .chip-grid{display:flex; flex-wrap:wrap; gap:12px; margin-top:50px;}
+  .chip{
+    display:flex; align-items:center; gap:10px; padding:12px 18px; border:1px solid var(--line); border-radius:999px;
+    font-family:var(--mono); font-size:13px; letter-spacing:0.5px; color:var(--ink-dim);
+    transition:all .3s ease; cursor:default;
+  }
+  .chip:hover{transform:translateY(-4px) scale(1.04); color:var(--ink);}
+  .chip .swatch{width:10px; height:10px; border-radius:50%; transition:transform .3s ease;}
+  .chip:hover .swatch{transform:scale(1.5);}
+
+  /* ---------- VALUES + HSEQ ---------- */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
+  @media(max-width:860px){ .split{grid-template-columns:1fr; gap:50px;} }
+  .values-list{margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:14px 24px;}
+  .values-list div{font-family:var(--mono); font-size:14px; color:var(--ink); border-bottom:1px solid var(--line); padding-bottom:12px; transition:color .25s ease, border-color .25s ease, transform .25s ease;}
+  .values-list div:hover{color:var(--gold); border-color:var(--gold); transform:translateX(4px);}
+  .values-list div::before{content:"— "; color:var(--gold);}
+  .iso-row{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
+  .iso-badge{font-family:var(--mono); font-size:12px; border:1px solid var(--teal); color:var(--teal); padding:8px 14px; letter-spacing:1px; border-radius:999px; animation:pulseGlow 3.2s ease-in-out infinite;}
+  .iso-badge:nth-child(2){animation-delay:.4s;}
+  .iso-badge:nth-child(3){animation-delay:.8s;}
+  @keyframes pulseGlow{ 0%,100%{ box-shadow:0 0 0 rgba(56,169,138,0);} 50%{ box-shadow:0 0 14px rgba(56,169,138,0.5);} }
+
+  /* ---------- MARKET / EXPANSION ---------- */
+  .route{display:flex; align-items:center; gap:0; margin-top:56px; flex-wrap:wrap;}
+  .route-stop{display:flex; flex-direction:column; gap:8px; padding-right:26px;}
+  .route-stop .dot{width:12px; height:12px; border-radius:50%; background:var(--gold); box-shadow:0 0 12px 2px rgba(239,193,63,0.6); animation:ping 2.4s ease-in-out infinite;}
+  .route-stop.dim .dot{background:var(--line); border:1px solid var(--ink-dim); box-shadow:none; animation:none;}
+  @keyframes ping{ 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.35);} }
+  .route-stop .label{font-family:var(--display); font-weight:700; font-size:20px; text-transform:uppercase;}
+  .route-stop .sub{font-family:var(--mono); font-size:11px; color:var(--ink-dim);}
+  .route-line{flex:1; min-width:40px; height:2px; margin:0 10px 26px; position:relative; overflow:hidden; background:var(--line);}
+  .route-line::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg, var(--gold), transparent); animation:flow 3s linear infinite;}
+  @keyframes flow{ 0%{ transform:translateX(-100%);} 100%{ transform:translateX(100%);} }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{padding:100px 0 40px; position:relative; overflow:hidden;}
+  .contact-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:60px;}
+  @media(max-width:860px){ .contact-grid{grid-template-columns:1fr; gap:40px;} }
+  .contact-grid h2{font-size:clamp(36px,6vw,64px);}
+  .contact-detail{margin-top:30px; font-family:var(--mono); font-size:14px; color:var(--ink-dim); display:flex; flex-direction:column; gap:10px;}
+  .contact-detail b{color:var(--ink); font-weight:500;}
+  .foot-bottom{margin-top:80px; padding-top:26px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-dim); flex-wrap:wrap; gap:10px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    html{scroll-behavior:auto !important;}
+    .reveal, .stagger > *{opacity:1 !important; transform:none !important;}
+  }
+
+  ::selection{background:var(--gold); color:var(--ground);}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 100 100"><path d="M50,8 L86,26 L82,60 L50,92 L18,60 L14,26 Z" fill="none" stroke="#EFC13F" stroke-width="4"/></svg>
+      AFRISHIELD
+    </div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#sustainability">Sustainability</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="cta-btn" style="display:inline-block">Request a quote</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="closeMenu">CLOSE ✕</button>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#industries">Industries</a>
+  <a href="#sustainability">Sustainability</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div id="dustLayer"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">AFRICAN DRILLING &amp; MINING SERVICES</div>
+      <h1>STRENGTH<br>BENEATH THE<br><span class="grad-text">SURFACE</span></h1>
+      <p class="lede">Afrishield Drilling Solutions delivers safe, precise drilling for mining, exploration, water and infrastructure projects across Africa — built on modern equipment, disciplined crews and international standards.</p>
+      <div class="actions">
+        <a href="#contact" class="btn-solid">Request a quote</a>
+        <a href="#services" class="btn-ghost">See our capabilities</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b data-count="8">0</b><span>Drilling services</span></div>
+        <div class="stat"><b data-count="13">0</b><span>Industries served</span></div>
+        <div class="stat"><b data-count="3">0</b><span>ISO standards targeted</span></div>
+        <div class="stat"><b data-count="8">0</b><span>Core values</span></div>
+      </div>
+    </div>
+    <div class="rig-col">
+      <div class="rig-ticks">
+        <span>0 m</span><span>25 m</span><span>50 m</span><span>75 m</span><span>100 m</span>
+      </div>
+      <svg class="rig-static" viewBox="0 0 200 520" preserveAspectRatio="xMidYMin meet">
+        <rect x="0" y="340" width="200" height="180" fill="#241F1A"/>
+        <rect x="0" y="340" width="200" height="26" fill="#332B21" opacity="0.9"/>
+        <rect x="0" y="384" width="200" height="20" fill="#3E3123" opacity="0.55"/>
+        <rect x="0" y="430" width="200" height="18" fill="#4C3825" opacity="0.4"/>
+        <rect x="0" y="472" width="200" height="16" fill="#332B21" opacity="0.5"/>
+        <line x1="0" y1="340" x2="200" y2="340" stroke="#EFC13F" stroke-width="1.5" opacity="0.5"/>
+        <line x1="70" y1="336" x2="98" y2="30" stroke="#6B655C" stroke-width="3"/>
+        <line x1="130" y1="336" x2="102" y2="30" stroke="#6B655C" stroke-width="3"/>
+        <line x1="60" y1="270" x2="140" y2="270" stroke="#4A443C" stroke-width="2"/>
+        <line x1="65" y1="200" x2="135" y2="200" stroke="#4A443C" stroke-width="2"/>
+        <line x1="72" y1="130" x2="128" y2="130" stroke="#4A443C" stroke-width="2"/>
+        <line x1="80" y1="70" x2="120" y2="70" stroke="#4A443C" stroke-width="2"/>
+        <rect x="86" y="18" width="28" height="12" rx="2" fill="#6B655C"/>
+      </svg>
+
+      <div class="drill-assembly-wrap">
+        <div class="drill-assembly">
+          <div class="rotary-head"></div>
+          <div class="drill-pipe"></div>
+          <svg class="drill-bit-spin" width="30" height="20" viewBox="0 0 30 20">
+            <path d="M2,2 L15,17 L28,2" fill="none" stroke="#EFC13F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="dust-burst">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="rig-label">RIG 01 — ACTIVE</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ABOUT / MEANING -->
+<section id="about">
+  <div class="wrap reveal">
+    <div class="eyebrow">THE NAME</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">What Afrishield stands for</h2>
+    <div class="meaning-grid">
+      <div class="meaning-card">
+        <div class="big">AFRI</div>
+        <h3>Africa's ground</h3>
+        <p>The continent, its people, and the mineral wealth beneath its soil — the resource this company exists to work with responsibly.</p>
+      </div>
+      <div class="meaning-card">
+        <div class="big">SHIELD</div>
+        <h3>Protection, held firm</h3>
+        <p>Reliability, resilience and trust — the standard every client's investment is held to, from mobilisation to final metre drilled.</p>
+      </div>
+    </div>
+    <div class="promise">"An African drilling company that protects clients' investments through safe, efficient and professional operations — strength beneath the surface, in every sense."</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap reveal">
+    <div class="eyebrow">CAPABILITIES</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Drilling &amp; technical services</h2>
+    <div class="svc-grid stagger">
+      <div class="svc-card" style="border-color:#EFC13F"><i class="dot" style="background:#EFC13F;color:#EFC13F"></i><div class="svc-code">RC</div><div class="svc-name">Reverse circulation</div><div class="svc-desc">Fast, accurate sampling for exploration and grade definition.</div></div>
+      <div class="svc-card" style="border-color:#38A98A"><i class="dot" style="background:#38A98A;color:#38A98A"></i><div class="svc-code">DC</div><div class="svc-name">Diamond core drilling</div><div class="svc-desc">High-recovery core for detailed geological analysis.</div></div>
+      <div class="svc-card" style="border-color:#E2703A"><i class="dot" style="background:#E2703A;color:#E2703A"></i><div class="svc-code">GC</div><div class="svc-name">Grade control</div><div class="svc-desc">Tight-spaced sampling for accurate ore control.</div></div>
+      <div class="svc-card" style="border-color:#9B78B8"><i class="dot" style="background:#9B78B8;color:#9B78B8"></i><div class="svc-code">BH</div><div class="svc-name">Blast hole drilling</div><div class="svc-desc">Precise patterns and depths for controlled blasting.</div></div>
+      <div class="svc-card" style="border-color:#38A98A"><i class="dot" style="background:#38A98A;color:#38A98A"></i><div class="svc-code">WW</div><div class="svc-name">Water well drilling</div><div class="svc-desc">Reliable water access for sites and communities.</div></div>
+      <div class="svc-card" style="border-color:#EFC13F"><i class="dot" style="background:#EFC13F;color:#EFC13F"></i><div class="svc-code">EX</div><div class="svc-name">Exploration drilling</div><div class="svc-desc">Full-cycle support for early-stage discovery.</div></div>
+      <div class="svc-card" style="border-color:#C24B3E"><i class="dot" style="background:#C24B3E;color:#C24B3E"></i><div class="svc-code">ER</div><div class="svc-name">Equipment rental</div><div class="svc-desc">Modern, well-maintained rigs, available on demand.</div></div>
+      <div class="svc-card" style="border-color:#7FB08A"><i class="dot" style="background:#7FB08A;color:#7FB08A"></i><div class="svc-code">TS</div><div class="svc-name">Technical services</div><div class="svc-desc">Specialist crews across the drilling lifecycle.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="wrap reveal">
+    <div class="eyebrow">WHO WE DRILL FOR</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Industries we serve</h2>
+    <div class="chip-grid">
+      <div class="chip"><span class="swatch" style="background:#EFC13F"></span>Gold mining</div>
+      <div class="chip"><span class="swatch" style="background:#B7E0D3"></span>Lithium mining</div>
+      <div class="chip"><span class="swatch" style="background:#E2703A"></span>Copper mining</div>
+      <div class="chip"><span class="swatch" style="background:#9B78B8"></span>Manganese mining</div>
+      <div class="chip"><span class="swatch" style="background:#C77363"></span>Bauxite mining</div>
+      <div class="chip"><span class="swatch" style="background:#C24B3E"></span>Iron ore mining</div>
+      <div class="chip"><span class="swatch" style="background:#7FB08A"></span>Nickel mining</div>
+      <div class="chip"><span class="swatch" style="background:#8A6BA8"></span>Rare earth minerals</div>
+      <div class="chip"><span class="swatch" style="background:#BDB6A6"></span>Construction</div>
+      <div class="chip"><span class="swatch" style="background:#38A98A"></span>Water resources</div>
+      <div class="chip"><span class="swatch" style="background:#BDB6A6"></span>Infrastructure development</div>
+      <div class="chip"><span class="swatch" style="background:#6B675F"></span>Oil &amp; gas</div>
+      <div class="chip"><span class="swatch" style="background:#AFA99C"></span>Government projects</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES + HSEQ -->
+<section id="sustainability">
+  <div class="wrap reveal">
+    <div class="split">
+      <div>
+        <div class="eyebrow">HOW WE OPERATE</div>
+        <h2 style="font-size:clamp(28px,4vw,40px)">Core values</h2>
+        <div class="values-list">
+          <div>Safety first</div><div>Integrity</div>
+          <div>Professionalism</div><div>Reliability</div>
+          <div>Innovation</div><div>Excellence</div>
+          <div>Accountability</div><div>Sustainability</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">HSEQ &amp; SUSTAINABILITY</div>
+        <h2 style="font-size:clamp(28px,4vw,40px)">Zero harm, by design</h2>
+        <p style="color:var(--ink-dim); margin-top:20px; font-size:15px; max-width:440px;">Every program runs on strong health, safety, environment and quality systems, working toward alignment with ISO 9001, ISO 14001 and ISO 45001 — alongside responsible mining, local employment and skills development in every community we operate in.</p>
+        <div class="iso-row">
+          <div class="iso-badge">ISO 9001</div>
+          <div class="iso-badge">ISO 14001</div>
+          <div class="iso-badge">ISO 45001</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET FOCUS -->
+<section>
+  <div class="wrap reveal">
+    <div class="eyebrow">MARKET FOCUS</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Rooted in Ghana, built for the region</h2>
+    <p style="color:var(--ink-dim); margin-top:18px; max-width:520px; font-size:15px;">Operations begin in Ghana, with a deliberate path toward expansion across West, Central and Southern Africa.</p>
+    <div class="route">
+      <div class="route-stop"><div class="dot"></div><div class="label">Ghana</div><div class="sub">HOME BASE</div></div>
+      <div class="route-line"></div>
+      <div class="route-stop dim"><div class="dot"></div><div class="label">West Africa</div><div class="sub">NEXT</div></div>
+      <div class="route-line"></div>
+      <div class="route-stop dim"><div class="dot"></div><div class="label">Central Africa</div><div class="sub">PLANNED</div></div>
+      <div class="route-line"></div>
+      <div class="route-stop dim"><div class="dot"></div><div class="label">Southern Africa</div><div class="sub">PLANNED</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">GET IN TOUCH</div>
+        <h2>Let's talk about your next hole.</h2>
+        <div class="actions" style="margin-top:30px;">
+          <a href="mailto:info@afrishielddrilling.com" class="btn-solid">Email us</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div><b>Head office (proposed)</b><br>Accra, Ghana</div>
+        <div><b>Email</b><br>info@afrishielddrilling.com</div>
+        <div><b>Web</b><br>www.afrishielddrilling.com</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 AFRISHIELD DRILLING SOLUTIONS</span>
+      <span>STRENGTH BENEATH THE SURFACE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('solid', window.scrollY > 40);
+  });
+
+  const burger = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  const dustLayer = document.getElementById('dustLayer');
+  dustLayer.style.position = 'absolute';
+  dustLayer.style.inset = '0';
+  dustLayer.style.zIndex = '1';
+  dustLayer.style.pointerEvents = 'none';
+  const dustColors = ['#EFC13F','#E2703A','#38A98A'];
+  for (let d = 0; d < 26; d++) {
+    const p = document.createElement('div');
+    p.className = 'dust';
+    const size = 2 + Math.random() * 4;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = (Math.random() * 100) + '%';
+    p.style.bottom = (Math.random() * 20) + '%';
+    p.style.background = dustColors[d % dustColors.length];
+    p.style.animationDuration = (6 + Math.random() * 8) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    dustLayer.appendChild(p);
+  }
+
+  const values = ['Safety first','Integrity','Professionalism','Reliability','Innovation','Excellence','Accountability','Sustainability'];
+  const track = document.getElementById('marqueeTrack');
+  const loopValues = [...values, ...values];
+  track.innerHTML = loopValues.map(v => `<span>${v}</span>`).join('');
+
+  const revealEls = document.querySelectorAll('.reveal, .stagger');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  const counters = document.querySelectorAll('[data-count]');
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-count'), 10);
+      let cur = 0;
+      const step = Math.max(1, Math.round(target / 30));
+      const tick = () => {
+        cur += step;
+        if (cur >= target) { el.textContent = target; return; }
+        el.textContent = cur;
+        requestAnimationFrame(tick);
+      };
+      tick();
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => cio.observe(el));
+</script>
+
+</body>
+</html>
